@@ -1,4 +1,6 @@
-function validarLogin(form) {
+function validarLogin(event, form) {
+    event.preventDefault();
+
     const username = form.username.value.trim();
     const password = form.password.value.trim();
 
@@ -11,25 +13,29 @@ function validarLogin(form) {
         return false;
     }
 
-    const data = {
+    const loginData = {
         username: username,
         password: password,
     };
 
-    let status;
-    $.post("./php/functions/valida_usuario.php", data, function(result) {
-        let response = JSON.parse(result);
-        status = response;
+    const apiService = new ApiService();
 
-        if (!status) {
-            alert('Usuario y/o contraseña incorrectos.');
+    apiService.login(loginData)
+    .then(response => {
+        if (response){
+            $.post("./php/functions/valida_usuario.php", loginData, function() {
+                window.location.href = './php/functions/login.php';
+            });   
+        } else {
+            alert('Error: Nombre de usuario y/o contraseña invalidos.');
 
             form.username.value = '';
             form.password.value = '';
-        } else {
-            window.location.href = './php/functions/login.php';
         }
+    })
+    .catch(error => {
+        console.error('Error al iniciar sesion:', error);
+    });
 
-        return false;
-    });   
+    
 }

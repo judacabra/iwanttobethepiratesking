@@ -1,5 +1,8 @@
 package com.pirates.api;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pirates.model.Crew;
 import com.pirates.model.PirateCharacter;
+import com.pirates.model.User;
 import com.pirates.response.CharacterResponseRest;
 import com.pirates.response.CrewResponseRest;
 import com.pirates.response.UserResponseRest;
@@ -78,5 +82,17 @@ public class Api {
     @GetMapping("/users/{id}")
     public ResponseEntity<UserResponseRest> getUserById(@PathVariable Integer id) {
         return userService.getUserById(id);
+    }
+
+    @PostMapping("/login/")
+    public boolean login(@RequestBody User user) {
+        Map<String, String> validCredentials = new HashMap<>();
+        validCredentials.put("Administrator", "1234");
+        validCredentials.put("UserClient", "5678");
+
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        return password.equals(validCredentials.get(username));
     }
 }
