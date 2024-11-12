@@ -1,0 +1,150 @@
+/* 
+    HTMLS
+*/
+input, textarea, select {
+    outline: none;
+    border: 0.5px solid skyblue !important;
+}
+
+body {
+    background: url('../img/dashboard_bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+nav, footer {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background: skyblue;
+}
+
+h2 {
+    color: skyblue !important;
+}
+
+nav {
+    top: 0;
+}
+
+footer {
+    bottom: 0;
+}
+
+footer p {
+    color: white;
+}
+
+ul, p {
+    padding: 0;
+    margin: 0 !important;
+}
+
+li {
+    list-style: none;
+    width: 150px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none !important;
+    color: white !important;
+    padding: 5%;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+a:hover {
+    color: skyblue !important;
+    background: white;
+}
+
+thead tr th {
+    color: skyblue !important;
+}
+
+/* 
+    ID'S
+*/
+#container {
+    margin: 8% auto;
+}
+
+#logo {
+    width: 20%;
+}
+
+#nav {
+    width: 80%;
+}
+
+#flag, #ship {
+    border: solid 0.5px skyblue;
+    border-radius: 0.375rem;
+    height: 100px;
+    cursor: pointer;
+}
+
+#flag:hover, #ship:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#description {
+    height: 100px;
+    overflow-y: scroll;
+    resize: none;
+}
+
+/* 
+    CLASS'S
+*/
+.fa-edit,
+.fa-trash-alt {
+    cursor: pointer;
+}
+
+.fa-edit, .fa-trash-alt, .fa-plus-circle {
+    color: skyblue;
+}
+
+.fa-edit:hover {
+    color: blue;
+}
+
+.fa-trash-alt:hover {
+    color: red;
+}
+
+.fa-plus-circle:hover {
+    color: green;
+}
+
+.br-none {
+    border: none;
+}
+
+.bg-none {
+    background: none;
+}
+
+.h-300 {
+    overflow-y: scroll;
+    height: 300px;
+}
+
+/* 
+    WEBKIT
+*/
+::-webkit-scrollbar {
+    width: 8px;  
+}
+
+::-webkit-scrollbar-thumb {
+    background: skyblue; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: red; 
+}
